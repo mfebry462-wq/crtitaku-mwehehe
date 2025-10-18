@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Buku Digital: Alasan Febry Memilih SMK dan Jurusan RPL</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap');
+
+  @keyframes gradientBG {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
+  }
+
+  body {
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(-45deg, #6a11cb, #2575fc, #ff6a00, #fbd72b);
+    background-size: 400% 400%;
+    animation: gradientBG 15s ease infinite;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    overflow: hidden;
+  }
+
+  .book-container {
+    width: 600px;
+    max-width: 90vw;
+    height: 700px;
+    background: rgba(31, 31, 56, 0.95);
+    border-radius: 20px;
+    box-shadow: 0 15px 30px rgba(0,0,0,0.6);
+    overflow: hidden;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    outline: none;
+  }
+
+  .header {
+    background: rgba(58, 58, 102, 0.95);
+    padding: 25px;
+    text-align: center;
+    font-size: 1.8rem;
+    font-weight: 700;
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+  }
+
+  .content {
+    flex: 1;
+    padding: 35px 40px;
+    font-size: 1.2rem;
+    line-height: 1.7;
+    position: relative;
+    overflow-y: auto; /* Ubah jadi auto supaya bisa scroll vertikal */
+    max-height: 100%; /* Pastikan tinggi tidak melebihi kontainer */
+  }
+
+  /* Ubah .page jadi posisi relative supaya tidak tumpang tindih */
+  .page {
+    position: relative; /* dari absolute */
+    width: 100%;
+    height: auto; /* biarkan tinggi menyesuaikan konten */
+    top: auto; left: auto;
+    opacity: 0;
+    transform: translateX(100%);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+    padding-right: 30px;
+    pointer-events: none;
+    box-sizing: border-box;
+  }
+
+  /* Untuk halaman yang aktif */
+  .page.active {
+    opacity: 1;
+    transform: translateX(0);
+    pointer-events: auto;
+    position: relative;
+  }
+
+  /* Hilangkan exit-left dan exit-right karena kita tidak menggunakan posisi absolute lagi */
+  .page.exit-left,
+  .page.exit-right {
+    display: none;
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  .nav-buttons {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px 40px;
+    background: rgba(42, 42, 85, 0.95);
+    box-shadow: inset 0 2px 5px rgba(0,0,0,0.3);
+  }
+
+  button {
+    background: #6a11cb;
+    border: none;
+    color: white;
+    font-size: 1.1rem;
+    padding: 12px 30px;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+  }
+
+  button:hover:not(:disabled) {
+    background: #2575fc;
+  }
+
+  button:disabled {
+    background: #4a3a85;
+    cursor: not-allowed;
+  }
+
+  .highlight {
+    color: #ffdd57;
+    font-weight: 700;
+    animation: pulse 2s infinite;
+  }
+
+  @keyframes pulse {
+    0%, 100% {
+      text-shadow: 0 0 8px #ffdd57;
+    }
+    50% {
+      text-shadow: 0 0 20px #ffdd57;
+    }
+  }
+</style>
+</head>
+<body>
+
+<div class="book-container" tabindex="0">
+  <div class="header">Alasan Febry Memilih <span class="highlight">SMK dan jurusan RPL</span></div>
+
+  <div class="content">
+    <div class="page active" id="page1">
+      <h2>Halaman 1: Awal Mimpi Febry</h2>
+      <p>Febry selalu tertarik dengan dunia teknologi dan komputer. Dia percaya bahwa masuk <span class="highlight">SMK</span> adalah langkah tepat untuk mengembangkan keterampilannya secara praktis.</p>
+    </div>
+
+    <div class="page" id="page2">
+      <h2>Halaman 2: Alasan Memilih SMK</h2>
+      <p>Bagi Febry, alasan memilih SMK adalah karena ingin memiliki pengalaman kerja yang banyak di bidang teknologi.</p>
+    </div>
+
+    <div class="page" id="page3">
+      <h2>Halaman 3: Pilihan Jurusan RPL</h2>
+      <p>Febry memilih jurusan <span class="highlight">Rekayasa Perangkat Lunak (RPL)</span> karena suka membuat program dan ingin belajar tentang pengembangan aplikasi dan software secara mendalam.</p>
+    </div>
+
+    <div class="page" id="page4">
+      <h2>Halaman 4: Harapan Febry</h2>
+      <p>Febry berharap dengan belajar RPL, dia bisa menjadi programmer handal dan menjadi dosen yang menciptakan teknologi yang bermanfaat untuk banyak orang di masa depan.</p>
+    </div>
+
+    <div class="page" id="page5">
+      <h2>Halaman 5: Pesan untuk Teman</h2>
+      <p>"Pilihlah jurusan yang sesuai dengan keahlianmu. Dengan semangat dan kerja keras, kamu bisa meraih apa yang kamu impikan!" kata Febry.</p>
+    </div>
+
+    <div class="page" id="page6">
+      <h2>Halaman 6: Cerita awal Febry</h2>
+      <p>Awal masuk SMK, febry ber sekolah di SMK TRITECH INFORMATIKA MEDAN, Sebelum masuk SMK Febry tidak mengetahui apa-apa tentang komputer, perangkat lunak, dan lain-lain. Setelah Febry belajar tentang apa saja yang dipelajari di RPL, dia memahami banyak hal.</p>
+      <p>Di RPL, kita mempelajari bahasa-bahasa pemrograman seperti <strong>Python</strong>, JavaScript, C++, dan lain-lain. Febry juga sering mencoba belajar coding di saat waktu luang.</p>
+      <p>Dengan mempelajari bahasa pemrograman, kita akan lebih mudah dalam membuat web atau aplikasi. Jika tidak mencoba, kita tidak akan bisa membuat aplikasi atau web dengan mudah.</p>
+    </div>
+    
+    <div class="page" id="page7">
+      <h2>Halaman 7: Keterampilan yang Dipelajari Febry</h2>
+      <p>Febry belajar banyak keterampilan baru di jurusan RPL seperti pemrograman, desain database, dan pengembangan aplikasi mobile. Dia juga belajar tentang kerja sama tim.</p>
+      <h3>Pertanyaan:</h3>
+      <p><strong>Apa saja keterampilan yang dipelajari Febry di jurusan RPL?</strong></p>
+      <p><em>Jawaban:</em> Febry belajar pemrograman, desain database, pengembangan aplikasi mobile, manajemen proyek, dan kerja tim.</p>
+    </div>
+
+    <div class="page" id="page8">
+      <h2>Halaman 8: Tantangan yang Dihadapi Febry</h2>
+      <p>Febry menghadapi beberapa tantangan, seperti debugging program yang rumit dan memahami konsep algoritma yang sulit, tetapi Febry terus berusaha dan sabar😇😇😇.</p>
+      <h3>Pertanyaan:</h3>
+      <p><strong>Apa tantangan utama yang dihadapi Febry saat belajar RPL?</strong></p>
+      <p><em>Jawaban:</em> Tantangan utama adalah debugging program yang rumit dan memahami konsep algoritma yang sulit, serta error yang sering datang di saat yang tidak diduga😭😥😥.</p>
+    </div>
+
+    <div class="page" id="page9">
+      <h2>Halaman 9: Motivasi Febry untuk Terus Belajar</h2>
+      <p>Motivasi terbesar Febry adalah ingin menciptakan aplikasi yang dapat membantu banyak orang serta cita-citanya menjadi programmer dan dosen yang inspiratif.</p>
+      <h3>Pertanyaan:</h3>
+      <p><strong>Apa motivasi terbesar Febry dalam belajar RPL?</strong></p>
+      <p><em>Jawaban:</em> Motivasi terbesar Febry adalah kedua orang tua Febry yang ingin melihat Febry menjadi orang yang bisa membanggakan mereka berdua. Orang tua Febry terus memberikan support yang memotivasi Febry, dan Febry ingin menciptakan aplikasi yang bermanfaat dan menjadi programmer serta dosen yang inspiratif.</p>
+    </div>
+
+<div class="page" id="page10">
+  <h2>Halaman 10: Pertanyaan tentang Bahasa Pemrograman</h2>
+  <p><strong>pertanyaan tentang Bahasa Pemrograman?</strong></p>
+  <p><em>Jawaban:</em> mempelajari bahasa pemrograman seperti Python, JavaScript, dan C++ di jurusan RPL memang sulit untuk di pahami
+    namun jika memang memiliki kemauan dan keinin tahuan yang luas terhadap bahasa pemrograman pasti akan menjadi mudah, dan jika bersungguh-sungguh 
+    pasti Allah SWT akan memberikan kemudahan dan jalan. Terimakasih banyak " dari febry😊😊🙏</p>
+</div>
+
+<div class="page" id="page11">
+  <h2>Halaman 11: Komentar dan Saran</h2>
+  <p>Silakan tinggalkan komentar dan saran kamu tentang cerita Febry dan buku digital ini!</p>
+  <form id="feedbackForm" style="display: flex; flex-direction: column; gap: 10px;">
+    <label for="name">Nama:</label>
+    <input type="text" id="name" name="name" placeholder="Masukkan nama kamu" style="padding:10px; border-radius:5px; border:none;">
+
+    <label for="comment">Komentar / Saran:</label>
+    <textarea id="comment" name="comment" placeholder="Tulis komentar atau saran kamu di sini..." rows="5" style="padding:10px; border-radius:5px; border:none;"></textarea>
+
+    <button type="submit">Kirim</button>
+  </form>
+  <p id="thankYouMessage" style="display:none; margin-top: 20px;">Terima kasih atas komentar dan saran kamu! 😊</p>
+</div>
+
+
+  </div>
+
+  <div class="nav-buttons">
+    <button id="prevBtn" disabled>Previous</button>
+    <button id="nextBtn">Next</button>
+  </div>
+</div>
+
+<script>
+  const pages = document.querySelectorAll('.page');
+  const prevBtn = document.getElementById('prevBtn');
+  const nextBtn = document.getElementById('nextBtn');
+  const bookContainer = document.querySelector('.book-container');
+
+  let currentPage = 0;
+  let isAnimating = false;
+  let scrollTimeout;
+
+  function updatePage(newPage) {
+    if(newPage < 0 || newPage >= pages.length) return;
+    if(isAnimating) return;
+    isAnimating = true;
+
+    if(newPage > currentPage) {
+      pages[currentPage].classList.remove('active');
+      pages[newPage].classList.add('active');
+    } else if(newPage < currentPage) {
+      pages[currentPage].classList.remove('active');
+      pages[newPage].classList.add('active');
+    } else {
+      isAnimating = false;
+      return;
+    }
+
+    prevBtn.disabled = newPage === 0;
+    nextBtn.disabled = newPage === pages.length - 1;
+
+    // karena kita tidak pakai exit-left/right, tidak perlu timeout delay animasi
+    setTimeout(() => {
+      currentPage = newPage;
+      isAnimating = false;
+    }, 500);
+  }
+
+  prevBtn.addEventListener('click', () => {
+    updatePage(currentPage - 1);
+  });
+
+  nextBtn.addEventListener('click', () => {
+    updatePage(currentPage + 1);
+  });
+
+  // Scroll horizontal & vertical untuk navigasi
+  bookContainer.addEventListener('wheel', (e) => {
+    if(isAnimating) return;
+
+    clearTimeout(scrollTimeout);
+
+    scrollTimeout = setTimeout(() => {
+      const deltaX = e.deltaX;
+      const deltaY = e.deltaY;
+      const threshold = 10;
+
+      if(Math.abs(deltaX) > Math.abs(deltaY)) {
+        // Dominan horizontal
+        if(deltaX > threshold && currentPage < pages.length - 1) {
+          updatePage(currentPage + 1);
+        } else if(deltaX < -threshold && currentPage > 0) {
+          updatePage(currentPage - 1);
+        }
+      } else {
+        // Dominan vertikal
+        if(deltaY > threshold && currentPage < pages.length - 1) {
+          updatePage(currentPage + 1);
+        } else if(deltaY < -threshold && currentPage > 0) {
+          updatePage(currentPage - 1);
+        }
+      }
+    }, 100);
+  });
+
+  // Keyboard arrow keys
+  document.addEventListener('keydown', (e) => {
+    if(e.key === "ArrowRight" || e.key === "ArrowDown") {
+      updatePage(currentPage + 1);
+    } else if(e.key === "ArrowLeft" || e.key === "ArrowUp") {
+      updatePage(currentPage - 1);
+    }
+  });
+</script>
+
+</body>
+</html>
